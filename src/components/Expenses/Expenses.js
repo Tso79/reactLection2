@@ -9,11 +9,20 @@ export default function Expenses(props) {
   const [filteredYear, setFilteredYear] = useState("2020");
   console.log(props.items);
   const filterChangedHandler = (selectedYear) => {
-    setFilteredYear((preselected) => {
-      return [preselected, ...selectedYear];
-    });
+    setFilteredYear(selectedYear);
   };
 
+  const filteredExpenses = props.items.filter((expense) => {
+    console.log(
+      JSON.stringify(expense) +
+        " estrae data-> " +
+        expense.date.getFullYear().toString() +
+        "data filtrata-> " +
+        filteredYear
+    );
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+  console.log("vettore filtraro -> " + [...filteredExpenses]);
   return (
     <div>
       <Card className="expenses">
@@ -21,7 +30,7 @@ export default function Expenses(props) {
           selected={filteredYear}
           onChangefilter={filterChangedHandler}
         />
-        {props.items.map((expense) => {
+        {filteredExpenses.map((expense) => {
           return (
             <ExpenseItem
               key={expense.id}
