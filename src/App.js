@@ -22,14 +22,14 @@ const dummmy_expenses = [
     id: 2,
     title: "terzo",
     amount: 100.0,
-    date: new Date(2022, 2, 28),
+    date: new Date(2020, 2, 28),
     times: 0,
   },
   {
     id: 3,
     title: "quarto",
     amount: 199.0,
-    date: new Date(2022, 0, 15),
+    date: new Date(2021, 0, 15),
     times: 0,
   },
 ];
